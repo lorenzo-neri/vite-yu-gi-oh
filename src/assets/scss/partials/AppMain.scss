@@ -4,7 +4,11 @@ main {
     background-color: $ygo-primary;
 
     .container {
-        background-color: $ygo-white;
+
+        #cards_found {
+            background-color: $ygo-dark;
+        }
+
 
         img {
             width: 100%;
