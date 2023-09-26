@@ -14,6 +14,8 @@ export default {
 }
 </script>
 
-<template></template>
+<template>
+    <div v-for="card in store.cards">{{ card.name }}</div>
+</template>
 
 <style lang="scss" scoped></style>
