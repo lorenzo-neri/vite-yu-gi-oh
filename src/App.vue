@@ -17,8 +17,6 @@ export default {
 }
 </script>
 
-<template>
-  <h1>FUNGE!</h1>
-</template>
+<template></template>
 
 <style scoped></style>
