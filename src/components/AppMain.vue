@@ -17,7 +17,7 @@ export default {
 
 <template>
     <main class="p-3">
-        <div class="container">
+        <div v-if="store.cards" class="container">
             <select class="m-3 w-25" name="type" id="type">
                 <option value="alien">Alien</option>
             </select>
@@ -43,6 +43,7 @@ export default {
             </div>
             <!-- /.container -->
         </div>
+        <div v-else>Loading</div>
     </main>
 </template>
 
