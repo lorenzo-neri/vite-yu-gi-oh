@@ -1,0 +1,21 @@
+@use '../app.scss' as *;
+
+main {
+    background-color: $ygo-primary;
+
+    .container {
+        background-color: $ygo-white;
+
+        img {
+            width: 100%;
+        }
+
+        .body-card {
+            background-color: $ygo-primary;
+            height: 100px;
+            border-radius: 0;
+            border: none;
+        }
+
+    }
+}
