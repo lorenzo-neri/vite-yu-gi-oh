@@ -1,0 +1,13 @@
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+body {
+  background-color: lightcoral;
+
+  h1 {
+    color: lightblue;
+
+    &:hover {
+      color: aquamarine;
+    }
+  }
+}
