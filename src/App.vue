@@ -1,5 +1,5 @@
 <script>
-
+import AppMain from './components/AppMain.vue'
 
 
 export default {
@@ -11,12 +11,14 @@ export default {
     }
   },
   components: {
-
+    AppMain
   }
 
 }
 </script>
 
-<template></template>
+<template>
+  <AppMain />
+</template>
 
 <style scoped></style>

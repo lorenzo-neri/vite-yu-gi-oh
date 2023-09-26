@@ -1,7 +1,7 @@
 import { reactive } from 'vue'
 import axios from 'axios';
 
-export const state = reactive({
+export const store = reactive({
     base_url: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0',
 
     fetchData() {
@@ -11,9 +11,15 @@ export const state = reactive({
             .get(this.base_url)
             .then(response => {
                 console.log(response);
-                this.characters = response.data.results
-                this.info = response.data.info
+                this.name = response.data.name
+                this.type = response.data.type
+                this.desc = response.data.desc
+                this.archetype = response.data.archetype
+                this.card_images = response.data.card_images
             })
+
+
+
             .catch(error => {
                 console.log('Error:');
                 console.error(error);
