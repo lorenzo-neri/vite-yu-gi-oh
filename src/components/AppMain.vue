@@ -1,6 +1,7 @@
 <script>
 import { store } from '../store.js';
 import Card from './Card.vue';
+import filterList from './filterList.vue'
 
 export default {
     name: 'AppMain',
@@ -11,10 +12,18 @@ export default {
     },
     components: {
         Card,
+        filterList,
     },
     created() {
 
-        store.fetchData()
+        store.fetchData(this.store.base_url)
+    },
+    methods: {
+        searchArcherype() {
+            const archetypeUrl = this.store.base_url + `?archetype=${this.store.archetypeSelected}`;
+            console.log(archetypeUrl);
+            this.store.fetchData(archetypeUrl);
+        }
     }
 }
 </script>
@@ -22,9 +31,7 @@ export default {
 <template>
     <main class="p-3">
         <div v-if="store.cards" class="container">
-            <select class="m-3 w-25" name="type" id="type">
-                <option value="alien">Alien</option>
-            </select>
+            <filterList @search-Filter="searchArcherype()" />
             <div class="container px-0 bg-white">
                 <div id="cards_found" class="p-2 text-white">
                     Found tot cards
