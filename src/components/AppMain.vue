@@ -1,13 +1,17 @@
 <script>
 import { store } from '../store.js';
-
+import Card from './Card.vue';
 
 export default {
     name: 'AppMain',
     data() {
         return {
+            cardData,
             store
         }
+    },
+    components: {
+        Card,
     },
     created() {
         store.fetchData()
@@ -25,24 +29,12 @@ export default {
                 <div id="cards_found" class="p-2 text-white">
                     Found tot cards
                 </div>
-                <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 p-4">
-                    <div class="col p-2" v-for="card in store.cards">
-                        <div class="card text-center">
-                            <img :src="card.card_images[0].image_url" alt="">
-                            <div class="body-card d-flex flex-column align-items-center justify-content-center p-3">
-                                <div class="title text-white text-uppercase">
-                                    {{ card.name }}
-                                </div>
-                                <div>{{ card.archetype }}</div>
-                            </div>
-                        </div>
-                        <!-- /.card -->
-                    </div>
-                </div>
-                <!-- /.row -->
+                <Card v-for="card in store.cards" :cardData="card" />
             </div>
-            <!-- /.container -->
+            <!-- /.row -->
         </div>
+        <!-- /.container -->
+
         <div v-else>Loading</div>
     </main>
 </template>
