@@ -6,9 +6,16 @@ export const archetype = reactive({
     listsArchetype: null,
     archetypeSelected: '',
 
-    fetchData() {
-        axios.get(this.base_url)
 
+    fetchData() {
+        axios.get(this.base_url, {
+
+            params: {
+                offset: 0,
+                num: 10,
+                // archetype: "Blue-Eyes" // questo quando lo dobbiamo aggiungere?
+            }
+        }
             .then(response => {
                 console.log(response.data);
 
@@ -19,6 +26,8 @@ export const archetype = reactive({
             .catch(error => {
                 console.log(error);
             })
+        )
     }
 
 })
+

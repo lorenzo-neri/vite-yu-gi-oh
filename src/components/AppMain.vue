@@ -11,7 +11,8 @@ export default {
     },
     data() {
         return {
-            store
+            store,
+            archetypeUrl: ''
         }
     },
     methods: {
@@ -22,7 +23,7 @@ export default {
         }
     },
     created() {
-        store.fetchData(this.store.base_url + `?num=${this.store.limit}&offset=${this.store.offset}`);
+        this.store.fetchData(this.store.base_url + `?num=${this.store.limit}&offset=${this.store.offset}`);
     },
 }
 </script>
