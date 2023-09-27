@@ -5,26 +5,25 @@ import filterList from './filterList.vue'
 
 export default {
     name: 'AppMain',
+    components: {
+        Card,
+        filterList,
+    },
     data() {
         return {
             store
         }
     },
-    components: {
-        Card,
-        filterList,
-    },
-    created() {
-
-        store.fetchData(this.store.base_url)
-    },
     methods: {
         searchArcherype() {
-            const archetypeUrl = this.store.base_url + `?archetype=${this.store.archetypeSelected}`;
+            const archetypeUrl = this.store.base_url + `?archetype=${this.store.archetypeSelected}&num=${this.store.limit}&offset=${this.store.offset}`;
             console.log(archetypeUrl);
             this.store.fetchData(archetypeUrl);
         }
-    }
+    },
+    created() {
+        store.fetchData(this.store.base_url + `?num=${this.store.limit}&offset=${this.store.offset}`);
+    },
 }
 </script>
 
