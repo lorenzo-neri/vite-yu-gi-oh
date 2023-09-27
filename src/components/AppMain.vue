@@ -1,29 +1,29 @@
 <script>
 import { store } from '../store.js';
 import Card from './Card.vue';
-import filterList from './filterList.vue'
+import filterList from './filterList.vue';
+import counterCardFound from './counterCardFound.vue';
 
 export default {
     name: 'AppMain',
     components: {
         Card,
         filterList,
+        counterCardFound,
     },
     data() {
         return {
             store,
-            archetypeUrl: ''
         }
     },
     methods: {
         searchArcherype() {
-            const archetypeUrl = this.store.base_url + `?archetype=${this.store.archetypeSelected}&num=${this.store.limit}&offset=${this.store.offset}`;
-            console.log(archetypeUrl);
-            this.store.fetchData(archetypeUrl);
+            console.log(this.store.archetypeSelected);
+            this.store.fetchData();
         }
     },
     created() {
-        this.store.fetchData(this.store.base_url + `?num=${this.store.limit}&offset=${this.store.offset}`);
+        store.fetchData();
     },
 }
 </script>
@@ -31,11 +31,17 @@ export default {
 <template>
     <main class="p-3">
         <div v-if="store.cards" class="container">
-            <filterList @search-Filter="searchArcherype()" />
+
+            <!-- FILTRAGGIO -->
+            <filterList @search-Filter="searchArcherype" />
+
             <div class="container px-0 bg-white">
+
+                <!-- COUNTER -->
                 <div id="cards_found" class="p-2 text-white">
-                    Found tot cards
+                    <counterCardFound />
                 </div>
+
                 <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 p-4">
                     <Card v-for="card in store.cards" :cardImage="card.card_images[0].image_url" :cardTitle="card.name"
                         :cardArchetype="card.archetype" :cardFound="store.cards.length" />

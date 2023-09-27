@@ -1,7 +1,7 @@
 <script>
 import { store } from '../store.js'
 import { archetype } from '../archetype.js';
-import selectArchetype from './selectArchetype.vue';
+import selectArchetype from '../components/selectArchetype.vue';
 
 export default {
     name: 'filterList',
@@ -30,7 +30,6 @@ export default {
     <div class="pb-3">
         <select name="choose_archetype" id="choose_archetype" @change="$emit('searchFilter')"
             v-model="store.archetypeSelected">
-            <option value="" disabled selected>Choose the archetype</option>
             <selectArchetype v-for="filter in archetype.listsArchetype" :type="filter.archetype_name" />
         </select>
     </div>
