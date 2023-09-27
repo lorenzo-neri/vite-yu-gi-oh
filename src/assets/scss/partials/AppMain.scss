@@ -3,5 +3,11 @@
 main {
     background-color: $ygo-primary;
 
+    .container {
 
+        #cards_found {
+            background-color: $ygo-dark;
+        }
+
+    }
 }
