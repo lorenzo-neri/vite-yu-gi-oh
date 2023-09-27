@@ -3,28 +3,5 @@
 main {
     background-color: $ygo-primary;
 
-    .container {
 
-        #cards_found {
-            background-color: $ygo-dark;
-        }
-
-
-        img {
-            width: 100%;
-        }
-
-        .body-card {
-            background-color: $ygo-primary;
-            height: 100px;
-            border-radius: 0;
-            border: none;
-
-            .title {
-                font-weight: 700;
-                line-height: top;
-            }
-        }
-
-    }
 }

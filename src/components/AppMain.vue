@@ -6,7 +6,6 @@ export default {
     name: 'AppMain',
     data() {
         return {
-            cardData,
             store
         }
     },
@@ -14,6 +13,7 @@ export default {
         Card,
     },
     created() {
+
         store.fetchData()
     }
 }
@@ -29,9 +29,13 @@ export default {
                 <div id="cards_found" class="p-2 text-white">
                     Found tot cards
                 </div>
-                <Card v-for="card in store.cards" :cardData="card" />
+                <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 p-4">
+                    <Card v-for="card in store.cards" :cardImage="card.card_images[0].image_url" :cardTitle="card.name"
+                        :cardArchetype="card.archetype" :cardFound="store.cards.length" />
+                </div>
+                <!-- /.row -->
+
             </div>
-            <!-- /.row -->
         </div>
         <!-- /.container -->
 

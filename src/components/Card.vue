@@ -3,7 +3,10 @@
 export default {
     name: 'Card',
     props: {
-        cartData: Object
+        cardImage: String,
+        cardTitle: String,
+        cardArchetype: String,
+        cardFound: Number,
     },
     data() {
         return {
@@ -16,12 +19,12 @@ export default {
 <template>
     <div class="col p-2">
         <div class="card text-center">
-            <img :src="cardData.card_images[0].image_url" alt="">
+            <img :src="cardImage" alt="cardTitle">
             <div class="body-card d-flex flex-column align-items-center justify-content-center p-3">
                 <div class="title text-white text-uppercase">
-                    {{ cardData.name }}
+                    {{ cardTitle }}
                 </div>
-                <div>{{ cardData.archetype }}</div>
+                <div>{{ cardArchetype }}</div>
             </div>
         </div>
         <!-- /.card -->
@@ -29,5 +32,5 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-@use '../assets/scss/partials/AppMain.scss' as *;
+@use '../assets/scss/partials/Card.scss' as *;
 </style>
